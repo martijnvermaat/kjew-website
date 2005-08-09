@@ -3,6 +3,11 @@ AddType application/x-javascript .js
 AddType "application/xhtml+xml; charset=utf-8" .xhtml
 AddType "text/html; charset=utf-8" .html
 
-DirectoryIndex index.html
+DirectoryIndex index.html index.php
 
 ErrorDocument 404 /404.html
+
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^a6.kjew.nl$
+RewriteCond %{REQUEST_URI} !^/a6/
+RewriteRule (.*) /a6/$1
